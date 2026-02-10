@@ -31,7 +31,7 @@ services:
   # DIAL Core - Central orchestration service that routes requests to models and applications
   # https://github.com/epam/ai-dial-core
   core:
-    image: epam/ai-dial-core:0.41.0-rc
+    image: epam/ai-dial-core:0.40.1
     platform: linux/amd64
     environment:
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
@@ -70,7 +70,7 @@ services:
   # OpenAI Adapter - Enables integration with OpenAI models (GPT-5, DALL-E, etc.)
   # https://github.com/epam/ai-dial-adapter-openai
   adapter-dial-openai:
-    image: epam/ai-dial-adapter-openai:development
+    image: epam/ai-dial-adapter-openai:0.35.4
     platform: linux/amd64
     environment:
       DALLE3_DEPLOYMENTS: dall-e-3
@@ -81,7 +81,7 @@ services:
   # AWS Bedrock Adapter - Enables integration with AWS Bedrock models (Claude, Titan, etc.)
   # https://github.com/epam/ai-dial-adapter-bedrock
   adapter-dial-bedrock:
-    image: epam/ai-dial-adapter-bedrock:development
+    image: epam/ai-dial-adapter-bedrock:0.36.3
     platform: linux/amd64
     environment:
       COMPATIBILITY_MAPPING: '{"claude-sonnet-4-20250514": "anthropic.claude-sonnet-4-20250514-v1:0"}'
@@ -91,7 +91,7 @@ services:
   # Google Vertex AI Adapter - Enables integration with Google Cloud AI models (Gemini, PaLM, etc.)
   # https://github.com/epam/ai-dial-adapter-vertexai
   adapter-dial-vertexai:
-    image: epam/ai-dial-adapter-vertexai:development
+    image: epam/ai-dial-adapter-vertexai:0.32.0
     platform: linux/amd64
     environment:
       DIAL_URL: "http://core:8080"
@@ -140,7 +140,7 @@ services:
   # Themes - Provides theming and branding assets for DIAL Chat interface
   # https://github.com/epam/ai-dial-chat-themes
   themes:
-    image: epam/ai-dial-chat-themes:development
+    image: epam/ai-dial-chat-themes:0.13.0
     platform: linux/amd64
     ports:
       - "3101:8080"
@@ -218,7 +218,7 @@ services:
   # Analytics - Real-time analytics processor for DIAL usage data
   # https://github.com/epam/ai-dial-analytics-realtime
   analytics:
-    image: epam/ai-dial-analytics-realtime:development
+    image: epam/ai-dial-analytics-realtime:0.20.2
     platform: linux/amd64
     depends_on:
       - core
@@ -312,7 +312,7 @@ services:
   # Quick Apps 2.0 - Application runner for no-code AI applications built with Quick App builder
   # https://github.com/epam/ai-dial-quickapps-backend
   quickapps-2-0:
-    image: epam/ai-dial-quickapps-backend:0.1.0-rc
+    image: epam/ai-dial-quickapps-backend:0.4.0
     platform: linux/amd64
     environment:
       DIAL_URL: "http://core:8080"
